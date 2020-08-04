@@ -39,7 +39,7 @@ namespace EteyeloFullStack_Test
             app.UseMvc();
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = Path.Join(env.ContentRootPath, "weatherclient");
+                spa.Options.SourcePath = Path.Join(env.ContentRootPath, "eteyelofullstack_testclient");
 
                 if (env.IsDevelopment())
                 {
