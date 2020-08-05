@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.6" />
-    <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
+    <Compile Remove="Controlles\**" />
+    <Content Remove="Controlles\**" />
+    <EmbeddedResource Remove="Controlles\**" />
+    <None Remove="Controlles\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controlles\" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.6" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
   </ItemGroup>
 
 </Project>
