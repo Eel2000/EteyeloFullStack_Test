@@ -131,7 +131,7 @@ namespace EteyeloFullStack_Test.Services
             return result;
         }
 
-        public void UpdateStuden(string id, string i, Etudiant etudiant)
+        public void UpdateStuden(string id, string E, Etudiant etudiant)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace EteyeloFullStack_Test.Services
                 //    .Set(e => e.etudiants.FirstOrDefault().FirstName,E));
 
                 var filter = Builders<Institus>.Filter;
-                var institu = filter.Eq(i => i.id, id) & filter.ElemMatch(e => e.etudiants, et => et.id == i);
+                var institu = filter.Eq(i => i.id, id) & filter.ElemMatch(e => e.etudiants, et => et.FirstName == E);
                 var updateBuilder = Builders<Institus>.Update;
 
                 var update = updateBuilder
@@ -155,6 +155,23 @@ namespace EteyeloFullStack_Test.Services
             catch (Exception e)
             {
                 Console.WriteLine(e.Message.ToString());
+            }
+        }
+
+         public async Task deletStudentAsync(string id,string E)
+        {
+            try
+            {
+                var filter = Builders<Institus>.Filter.Where(i => i.id == id);
+
+                var update = Builders<Institus>.Update.PullFilter(y => y.etudiants, builder => builder.FirstName == E);
+                var result = await _institu.UpdateOneAsync(filter, update);
+               Console.WriteLine(result.IsAcknowledged && result.ModifiedCount > 0);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An erro occur while deleting");
+                throw;
             }
         }
     }

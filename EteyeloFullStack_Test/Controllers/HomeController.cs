@@ -6,6 +6,7 @@ using EteyeloFullStack_Test.Models;
 using EteyeloFullStack_Test.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 
 namespace EteyeloFullStack_Test.Controllers
 {
@@ -137,7 +138,7 @@ namespace EteyeloFullStack_Test.Controllers
         {
             try
             {
-                _appServices.deletStudent(id, Keyword);
+                _ = _appServices.deletStudentAsync(id, Keyword);
                 return Ok();
             }
             catch (Exception e)
