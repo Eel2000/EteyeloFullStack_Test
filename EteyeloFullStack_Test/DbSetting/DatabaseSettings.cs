@@ -9,6 +9,8 @@ namespace EteyeloFullStack_Test.DbSetting
     {
         public string Institu { get; set; }
 
+        public string Etudiant { get; set; }
+
         public string ConnectionString { get; set; }
 
         public string DatabaseName { get; set; }
@@ -21,5 +23,7 @@ namespace EteyeloFullStack_Test.DbSetting
         public string ConnectionString { get ; set ; }
 
         public string DatabaseName { get ; set ; }
+
+        public string Etudiant { get ; set ; }
     }
 }
