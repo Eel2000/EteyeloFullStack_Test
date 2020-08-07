@@ -29,7 +29,7 @@ namespace EteyeloFullStack_Test
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "eteyelofullstack_testclient/build";
+                configuration.RootPath = "eteyelotestclient/build";
             });
 
             services.Configure<DatabaseSettings>
@@ -55,7 +55,7 @@ namespace EteyeloFullStack_Test
             app.UseMvc();
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = Path.Join(env.ContentRootPath, "eteyelofullstack_testclient");
+                spa.Options.SourcePath = Path.Join(env.ContentRootPath, "eteyelotestclient");
 
                 if (env.IsDevelopment())
                 {
