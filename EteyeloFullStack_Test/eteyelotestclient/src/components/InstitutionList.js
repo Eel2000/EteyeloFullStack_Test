@@ -1,11 +1,26 @@
 ﻿import React, { Component } from 'react';
 import { Navigation } from './Navigation';
 import { InputGroup, FormControl, Button, Table } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 export class InstitutionList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { institu: [] };
+    }
+
+    RefrechList() {
+        this.setState({ institu: [{}] });
+    }
+
+    componentDidMount() {
+        this.RefrechList();
+    }
+
     render() {
+        const { institu } = this.state;
         return (
             <React.Fragment>
                 <Navigation />
@@ -34,13 +49,22 @@ export class InstitutionList extends Component {
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Intitution/ecole</th>
-                                        <th>Email</th>
+                                        <th>Institution/ecole</th>
                                         <th>Telephone</th>
                                         <th>----</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {institu.map(institu =>
+                                        <tr key={institu.id}>
+                                            <td></td>
+                                            <td>{institu.InstituName}</td>
+                                            <td>{institu.InstituPhone}</td>
+                                            <td>
+                                                <Link to="/Details">Details</Link>
+                                            </td>
+                                        </tr>
+                                        )}
                                 </tbody>
                             </Table>
                         </div>

@@ -20,13 +20,7 @@ export class Commencer extends Component {
                                 <Form.Control type="email" placeholder="Nom de l'institu" />
                             </Form.Group>
 
-                            <Form.Group controlId="InstituEmail">
-                                <Form.Label>Email de l'institu</Form.Label>
-                                <Form.Control type="email" placeholder="addresse email de l'institu" />
-                                <Form.Text className="text-muted">
-                                    Nous ne partegerons jamais votre adresse Email a personne.
-                            </Form.Text>
-                            </Form.Group>
+                           
 
                             <Form.Group controlId="InsitutPhone">
                                 <Form.Label>Phone</Form.Label>
