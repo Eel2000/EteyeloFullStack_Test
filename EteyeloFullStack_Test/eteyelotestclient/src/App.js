@@ -6,6 +6,7 @@ import './App.css';
 import { Home } from './components/Home';
 import { Commencer } from './components/Commencer';
 import { NewHomePage } from './components/NewHomePage';
+import { InstitutionList } from './components/InstitutionList';
 
 
 
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/" component={Home} exact />
                     <Route path="/Commencer" component={Commencer} />
                     <Route path="/NewHomePage" component={NewHomePage} />
+                    <Route path="/InstitutionList" component={InstitutionList} />
                 </Switch>
             </div>
         </BrowserRouter>

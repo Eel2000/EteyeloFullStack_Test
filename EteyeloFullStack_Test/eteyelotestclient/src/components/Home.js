@@ -8,7 +8,7 @@ export class Home extends Component {
     render() {
         return (
             <div className="container">
-                <h1 className="display-2 mt-5">Welcome</h1>
+                <h1 className="display-2 mt-5 p-5">Bienvenu sur Contoso</h1>
                 
                 <div className="bg-dark">
                     <p className="text-white p-5">
