@@ -16,8 +16,4 @@
     <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="eteyelotestclient\src\components\" />
-  </ItemGroup>
-
 </Project>
