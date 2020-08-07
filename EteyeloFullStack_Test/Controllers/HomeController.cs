@@ -52,7 +52,7 @@ namespace EteyeloFullStack_Test.Controllers
         //add new one (institut)
         [HttpPost]
         [Route("NewInstitu")]
-        public ActionResult newInstitu([Bind("InstituName,InstituPhone,etudiants")] Institus institus)
+        public ActionResult NewInstitu([Bind("InstituName,InstituPhone,etudiants")] Institus institus)
         {
             try
             {
