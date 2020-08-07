@@ -1,12 +1,14 @@
 ﻿import React, { Component } from 'react'
 
+import { Link } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 
 export class Home extends Component {
     render() {
         return (
             <div className="container">
-                <h1 className="display-2">Welcome</h1>
+                <h1 className="display-2 mt-5">Welcome</h1>
                 
                 <div className="bg-dark">
                     <p className="text-white p-5">
@@ -15,7 +17,10 @@ export class Home extends Component {
                         ou inscrire votre institution sur notre plateform et ajouter et inscrire vos eleves 
                         selon votre gres.
                     </p>
-                    <Button variant="outline-primary" className="mb-4">Commencer</Button>
+                   
+                    <Link to="Commencer">
+                         <Button variant="outline-primary" className="mb-4">Commencer</Button>
+                    </Link>
                 </div>
             </div>
 
