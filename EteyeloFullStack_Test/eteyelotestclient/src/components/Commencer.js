@@ -23,8 +23,7 @@ export class Commencer extends Component {
             this.state = { loading: false, promotion: [], etudData: new EtudiantData };
         }
 
-        this.handleSave = this.handleSave.bind(this);
-        this.handleCancle = this.handleCancle.bind(this);
+       
     }
     render() {
         return (
@@ -35,7 +34,7 @@ export class Commencer extends Component {
                     <div className="container col-6 card Shadow-lg mt-5 p-5 pb-5">
                         <h4 className="text-dark">Coordonnees</h4>
                         <hr />
-                        <Form>
+                        <Form onSubmit={this.handleSave}>
                             <Form.Group controlId="InstituName">
                                 <Form.Label>Nom de l'institu</Form.Label>
                                 <Form.Control type="email" placeholder="Nom de l'institu" />
@@ -74,6 +73,24 @@ export class Commencer extends Component {
             </div>
             );
     }
+
+    handleSave(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+
+        fetch('api/Home/NewInstituStudent', {
+            method: 'POST',
+            body: data
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                this.props.history.push("");
+            })
+    }
+
+     handleCancel(e) {
+        e.preventDefault();
+        this.props.history.push("");
+    }  
 }
 
 export class EtudiantData {
