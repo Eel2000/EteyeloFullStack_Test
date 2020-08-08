@@ -1,10 +1,31 @@
 ﻿import React, { Component } from 'react';
-
 import { Row, Col, Form, Button } from 'react-bootstrap';
 
 import { NavLink } from 'react-router-dom';
 
 export class Commencer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { loading: true, promotion: [], etudData: new EtudiantData };
+
+        var etudId = this.props.match.params["id"];
+        var keyWord = this.props.match.params["keyword"]
+
+        if (etudId > 0) {
+            fetch('api/Home/DetailsStudent' + etudId + keyWord)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({ loading: false, etudData: data });
+                });
+        }
+        else {
+            this.state = { loading: false, promotion: [], etudData: new EtudiantData };
+        }
+
+        this.handleSave = this.handleSave.bind(this);
+        this.handleCancle = this.handleCancle.bind(this);
+    }
     render() {
         return (
             <div className="container-fluide">
@@ -53,4 +74,11 @@ export class Commencer extends Component {
             </div>
             );
     }
+}
+
+export class EtudiantData {
+    id = "";
+    FirstName = "";
+    LastName = "";
+    promo = "";
 }
