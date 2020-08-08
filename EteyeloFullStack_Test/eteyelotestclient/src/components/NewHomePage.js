@@ -15,7 +15,7 @@ export class NewHomePage extends Component {
                     <InputGroup className="mb-1">
                         <FormControl
                             placeholder="Eleve rechercher"
-                            aria-label="Recipient's username"
+                            aria-label="prenom de l'eleve"
                             aria-describedby="basic-addon2"
                         />
                         <InputGroup.Append className="col-8 ">
