@@ -158,7 +158,7 @@ namespace EteyeloFullStack_Test.Services
             }
         }
 
-         public async Task deletStudentAsync(string id,string E)
+         public async Task DeletStudentAsync(string id,string E)
         {
             try
             {

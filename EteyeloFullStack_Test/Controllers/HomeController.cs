@@ -23,19 +23,19 @@ namespace EteyeloFullStack_Test.Controllers
 
         //get all institu from  Document and their students
         [HttpGet]
-        [Route("GetInstitus")]
+        [Route("api/Home/AllInstitus")]
         public ActionResult<List<Institus>> AllInstitus()
             => _appServices.GetInstitus();
 
         //get one chosen institu
         [HttpGet]
-        [Route("GetById")]
+        [Route("api/Home/GetById")]
         public ActionResult<Institus> GetInstitu(string id)
             => _appServices.GetById(id);
 
         //delete specifique institut
         [HttpPost]
-        [Route("DeleteInstitu")]
+        [Route("api/Home/DeleteInstitu")]
         public ActionResult DeleteInstitu(string id)
         {
             try
@@ -51,7 +51,7 @@ namespace EteyeloFullStack_Test.Controllers
 
         //add new one (institut)
         [HttpPost]
-        [Route("NewInstitu")]
+        [Route("api/Home/NewInstitu")]
         public ActionResult NewInstitu([Bind("InstituName,InstituPhone,etudiants")] Institus institus)
         {
             try
@@ -68,7 +68,7 @@ namespace EteyeloFullStack_Test.Controllers
 
         //Update related intitute information
         [HttpPost]
-        [Route("UpdateInstitu")]
+        [Route("api/Home/UpdateInstitu")]
         public ActionResult UpdateInstitu(string id, [Bind("InstituName,InstituPhone,etudiants")] Institus institus)
         {
             try
@@ -85,7 +85,7 @@ namespace EteyeloFullStack_Test.Controllers
         //id = institut.id
         //adding new student to specifique institut
         [HttpPost]
-        [Route("NewInstituStudent")]
+        [Route("api/Home/NewInstituStudent")]
         public ActionResult NewInstituStudent(string id, [Bind("FirstName,LastName,promo")] Etudiant etudiant)
         {
             try
@@ -101,7 +101,7 @@ namespace EteyeloFullStack_Test.Controllers
 
         //update intitut specifique student
         [HttpPost]
-        [Route("UpdateStuden")]
+        [Route("api/Home/UpdateStuden")]
         public ActionResult UpdateStuden(string id, string keyword, [Bind("FirstName,LastName,promo")] Etudiant etudiant)
         {
             try
@@ -117,7 +117,7 @@ namespace EteyeloFullStack_Test.Controllers
 
         //getting details on one student
         [HttpGet]
-        [Route("DetailsStudent")]
+        [Route("api/Home/DetailsStudent")]
         public ActionResult DetailsStudent(string id, string keyword)
         {
             try
@@ -133,12 +133,12 @@ namespace EteyeloFullStack_Test.Controllers
 
         //deleting specifique 
         [HttpGet]
-        [Route("deletStudent")]
-        public ActionResult deletStudent(string id, string Keyword)
+        [Route("api/Home/DeletStudent")]
+        public ActionResult DeletStudent(string id, string Keyword)
         {
             try
             {
-                _ = _appServices.deletStudentAsync(id, Keyword);
+                _ = _appServices.DeletStudentAsync(id, Keyword);
                 return Ok();
             }
             catch (Exception e)

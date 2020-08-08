@@ -8,11 +8,15 @@ export class InstitutionList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { institu: [] };
+        this.state = { institu: [], loading: true };
     }
 
     RefrechList() {
-        this.setState({ institu: [{}] });
+        fetch('api/Home/GetInstitus')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ institu: data, loading: false });
+            });
     }
 
     componentDidMount() {
@@ -20,7 +24,12 @@ export class InstitutionList extends Component {
     }
 
     render() {
+        let contents = this.state.loading
+            ? <p><em>Loading...</em></p>
+            : this.state.institu;  
+            
         const { institu } = this.state;
+
         return (
             <React.Fragment>
                 <Navigation />
@@ -76,3 +85,4 @@ export class InstitutionList extends Component {
             );
     }
 }
+
